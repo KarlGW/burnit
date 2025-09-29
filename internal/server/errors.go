@@ -4,9 +4,9 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/RedeployAB/burnit/internal/api"
-	"github.com/RedeployAB/burnit/internal/secret"
-	"github.com/RedeployAB/burnit/internal/security"
+	"github.com/KarlGW/burnit/internal/api"
+	"github.com/KarlGW/burnit/internal/secret"
+	"github.com/KarlGW/burnit/internal/security"
 )
 
 var (

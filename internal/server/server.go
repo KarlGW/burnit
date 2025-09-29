@@ -10,9 +10,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/RedeployAB/burnit/internal/log"
-	"github.com/RedeployAB/burnit/internal/secret"
-	"github.com/RedeployAB/burnit/internal/ui"
+	"github.com/KarlGW/burnit/internal/log"
+	"github.com/KarlGW/burnit/internal/secret"
+	"github.com/KarlGW/burnit/internal/ui"
 )
 
 // Defaults for server configuration.

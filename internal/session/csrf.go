@@ -4,7 +4,7 @@ import (
 	"encoding/base64"
 	"time"
 
-	"github.com/RedeployAB/burnit/internal/secret"
+	"github.com/KarlGW/burnit/internal/secret"
 )
 
 const (

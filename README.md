@@ -2,6 +2,8 @@
 
 > Application for secret sharing.
 
+**Note**: This is a fork of [`burnit`](https://github.com/RedeployAB/burnit).
+
 `burnit` is a service for creating temporary secrets and sharing them. In addition to this
 it can be used to generate new secrets.
 
@@ -49,12 +51,12 @@ and complexity based on the incoming request. These secrets are not stored.
 
 The supported databases for the application are:
 
-- PostgreSQL
-- MSSQL
-- SQLite
-- MongoDB
-- Redis
-- In-memory
+* PostgreSQL
+* MSSQL
+* SQLite
+* MongoDB
+* Redis
+* In-memory
 
 The main application database and the session database does not have to be the same database or driver.
 
@@ -62,9 +64,8 @@ The main application database and the session database does not have to be the s
 
 If running as a container the recommended resources are (as a start, and depending on expected load):
 
-- **CPU**: `100m`
-- **Memory**: `64Mi`
-
+* **CPU**: `100m`
+* **Memory**: `64Mi`
 
 ## Install
 
@@ -78,19 +79,19 @@ a server or as a container image on a platoform that can run containers.
 
 The application is served as an archive (gzipped tarball) and contains:
 
-- `burnit` (the application binary)
-- `README.md`
-- `LICENSE`
-- `LICENSE-THIRD-PARTY.md`
+* `burnit` (the application binary)
+* `README.md`
+* `LICENSE`
+* `LICENSE-THIRD-PARTY.md`
 
-Download the archive for the desired platform from [releases](https://github.com/RedeployAB/burnit/releases).
+Download the archive for the desired platform from [releases](https://github.com/KarlGW/burnit/releases).
 
 **Note**: Binaries are available for platforms `linux/amd64` and `linux/arm64`.
 
 ### Container image
 
 ```sh
-docker pull ghcr.io/redeployab/burnit/burnit:<tag|version> --platform <platform>
+docker pull ghcr.io/karlgw/burnit/burnit:<tag|version> --platform <platform>
 ```
 
 **Note**: Images are available for platforms `linux/amd64` and `linux/arm64`.
@@ -103,10 +104,10 @@ Scripts are provided to build the UI (frontend) and to build the application (th
 
 ```sh
 # HTTP.
-git clone https://github.com/RedeployAB/burnit.git
+git clone https://github.com/KarlGW/burnit.git
 
 # SSH.
-git clone git@github.com:RedeployAB/burnit.git
+git clone git@github.com:KarlGW/burnit.git
 ```
 
 **Build UI (frontend)**
@@ -130,9 +131,10 @@ export ESBUILD_SHA256=<sha256>
 | `esbuild` | `77dce3e5d160db73bb37a61d89b5b38c5de1f18fbf4cc1c9c284a65ae5abb526` | **macOS** |
 
 **Note**: The hashes listed above have been calculated by getting the checksum for:
-- `esbuild@v0.24.0` from its official [download location](https://esbuild.github.io/dl/v0.24.0).
-- `htmx@v2.0.3` from its official [download location](https://github.com/bigskysoftware/htmx/releases/download/v2.0.3/htmx.esm.js) + a modification to the file that replaces a call to `eval`.
-- `tailwindcss@v3.4.14` from its official [download location](https://github.com/tailwindlabs/tailwindcss/releases/download/v3.4.14/tailwindcss-linux-x64).
+
+* `esbuild@v0.24.0` from its official [download location](https://esbuild.github.io/dl/v0.24.0).
+* `htmx@v2.0.3` from its official [download location](https://github.com/bigskysoftware/htmx/releases/download/v2.0.3/htmx.esm.js) + a modification to the file that replaces a call to `eval`.
+* `tailwindcss@v3.4.14` from its official [download location](https://github.com/tailwindlabs/tailwindcss/releases/download/v3.4.14/tailwindcss-linux-x64).
 
 The resulting files will be placed in `internal/ui/static` (they are present in `.gitignore`). This due to that they are to be embedded into the application binary.
 
@@ -161,7 +163,6 @@ Order of precedence:
 * File
 * Environment variables
 * Command line arguments
-
 
 In most scenarios the only configuration that needs to be set is the connection details for the database (main application).
 
@@ -374,13 +375,11 @@ All the available configuration that can be done with environment variables:
 | `BURNIT_RATE_LIMITER_CLEANUP_INTERVAL` | The interval at which to clean up stale rate limiter entires. |
 | `BURNIT_BACKEND_ONLY` | Disable UI (frontend). Default: `false`. |
 
-
 **Secrets configuration**
 
 | Name | Description |
 |------|-------------|
 | `BURNIT_SECRET_SERVICE_TIMEOUT` | Timeout for the internal secret service. Default: `10s`. |
-
 
 **Database configuration**
 
@@ -394,7 +393,6 @@ All the available configuration that can be done with environment variables:
 | `BURNIT_DATABASE_PASSWORD` | Database password. |
 | `BURNIT_DATABASE_TIMEOUT` | Timeout for database operations. Default: `10s`. |
 | `BURNIT_DATABASE_CONNECT_TIMEOUT` | Connect timeout for the database. Default: `10s`. |
-
 
 **Database (MongoDB) configuration**
 
@@ -431,14 +429,12 @@ All the available configuration that can be done with environment variables:
 | `BURNIT_DATABASE_REDIS_MAX_RETRY_BACKOFF` | Maximum retry backoff for the Redis client. |
 | `BURNIT_DATABASE_REDIS_ENABLE_TLS` | Enable TLS for the Redis client. Default: true. |
 
-
 **UI configuration**
 
 | Name | Description |
 |------|-------------|
 | `BURNIT_SESSION_SERVICE_TIMEOUT` | Timeout for the internal session service. Default: `5s`. |
 | `BURNIT_RUNTIME_PARSE` | Enable runtime parsing of the UI templates. |
-
 
 **Session database configuration**
 
@@ -452,7 +448,6 @@ All the available configuration that can be done with environment variables:
 | `BURNIT_SESSION_DATABASE_PASSWORD` | Session database password. |
 | `BURNIT_SESSION_DATABASE_TIMEOUT` | Timeout for session database operations. Default: `5s`. |
 | `BURNIT_SESSION_DATABASE_CONNECT_TIMEOUT` | Connect timeout for the session database. Default: `10s`. |
-
 
 **Session database (MongoDB) configuration**
 
@@ -626,7 +621,6 @@ The supported values for the database driver are:
 * `redis`
 * `inmem`
 
-
 ## Usage
 
 ### API
@@ -773,7 +767,6 @@ Error responses have the following structure:
 | `error` | *string* | The error text/information/message. |
 | `requestId` | *string* | The request ID (UUID) for the request triggering the error. |
 
-
 #### Error codes
 
 | Error code | HTTP status code | Description |
@@ -799,7 +792,6 @@ The application handle sessions with CSRF tokens to increase security when creat
 
 It is also possible to store sessions in a database. See more at the sections [Database configuration](#database-configuration), [Configuration file](#configuration-file), [Environment variables](#environment-variables) and [Command-line flags](#command-line-flags).
 
-
 ## Rate limiting
 
 A simple rate limiting mechanism is built-in into the application. It handles rate limiting on a per IP basis and store the data in an in-memory database. The rate limiting model is according to a token bucket algorithm that allows for requests to be made as long as there are tokens in the bucket.
@@ -820,7 +812,6 @@ server:
   rateLimiter:
     enabled: true
 ```
-
 
 The options that are not configured will have the following default values:
 
@@ -858,4 +849,4 @@ This will make sure the application parses the HTML template every call, thus ma
 
 ## TODO
 
-- [ ] Add deployment examples, templates and scripts
+* [ ] Add deployment examples, templates and scripts

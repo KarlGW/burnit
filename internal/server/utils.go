@@ -9,7 +9,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/RedeployAB/burnit/internal/api"
+	"github.com/KarlGW/burnit/internal/api"
 )
 
 const (

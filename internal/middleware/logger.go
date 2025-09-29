@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/RedeployAB/burnit/internal/log"
+	"github.com/KarlGW/burnit/internal/log"
 )
 
 // loggingResponseWriter is a wrapper around an http.ResponseWriter that keeps
