@@ -9,6 +9,7 @@ node_modules/
 htmx.js
 htmx.esm.js
 main.min.js
+/tailwindcss
 
 main.css
 main.min.css
