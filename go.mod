@@ -1,4 +1,4 @@
-module github.com/RedeployAB/burnit
+module github.com/KarlGW/burnit
 
 go 1.23.5
 

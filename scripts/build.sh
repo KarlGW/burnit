@@ -1,6 +1,6 @@
 #!/bin/bash
 bin=burnit
-module_path=github.com/RedeployAB/$bin
+module_path=github.com/KarlGW/$bin
 build_root=build
 platform=linux/amd64
 

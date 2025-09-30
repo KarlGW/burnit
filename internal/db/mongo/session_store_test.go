@@ -4,8 +4,8 @@ import (
 	"context"
 	"testing"
 
-	"github.com/RedeployAB/burnit/internal/db"
-	dberrors "github.com/RedeployAB/burnit/internal/db/errors"
+	"github.com/KarlGW/burnit/internal/db"
+	dberrors "github.com/KarlGW/burnit/internal/db/errors"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
 )

@@ -5,7 +5,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/RedeployAB/burnit/internal/secret"
+	"github.com/KarlGW/burnit/internal/secret"
 )
 
 // secretCreateResponse is the response data for a create secret request.

@@ -9,11 +9,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/RedeployAB/burnit/internal/log"
-	"github.com/RedeployAB/burnit/internal/middleware"
-	"github.com/RedeployAB/burnit/internal/secret"
-	"github.com/RedeployAB/burnit/internal/security"
-	"github.com/RedeployAB/burnit/internal/session"
+	"github.com/KarlGW/burnit/internal/log"
+	"github.com/KarlGW/burnit/internal/middleware"
+	"github.com/KarlGW/burnit/internal/secret"
+	"github.com/KarlGW/burnit/internal/security"
+	"github.com/KarlGW/burnit/internal/session"
 )
 
 // Index handles requests to the index route.

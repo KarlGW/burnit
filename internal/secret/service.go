@@ -11,9 +11,9 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"github.com/RedeployAB/burnit/internal/db"
-	dberrors "github.com/RedeployAB/burnit/internal/db/errors"
-	"github.com/RedeployAB/burnit/internal/security"
+	"github.com/KarlGW/burnit/internal/db"
+	dberrors "github.com/KarlGW/burnit/internal/db/errors"
+	"github.com/KarlGW/burnit/internal/security"
 	"github.com/google/uuid"
 )
 

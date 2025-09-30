@@ -9,13 +9,13 @@ import (
 	"strings"
 	"time"
 
-	"github.com/RedeployAB/burnit/internal/api"
-	"github.com/RedeployAB/burnit/internal/log"
-	"github.com/RedeployAB/burnit/internal/middleware"
-	"github.com/RedeployAB/burnit/internal/secret"
-	"github.com/RedeployAB/burnit/internal/security"
-	"github.com/RedeployAB/burnit/internal/ui"
-	"github.com/RedeployAB/burnit/internal/version"
+	"github.com/KarlGW/burnit/internal/api"
+	"github.com/KarlGW/burnit/internal/log"
+	"github.com/KarlGW/burnit/internal/middleware"
+	"github.com/KarlGW/burnit/internal/secret"
+	"github.com/KarlGW/burnit/internal/security"
+	"github.com/KarlGW/burnit/internal/ui"
+	"github.com/KarlGW/burnit/internal/version"
 )
 
 const (

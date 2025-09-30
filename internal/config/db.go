@@ -6,9 +6,9 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/RedeployAB/burnit/internal/db/mongo"
-	"github.com/RedeployAB/burnit/internal/db/redis"
-	"github.com/RedeployAB/burnit/internal/db/sql"
+	"github.com/KarlGW/burnit/internal/db/mongo"
+	"github.com/KarlGW/burnit/internal/db/redis"
+	"github.com/KarlGW/burnit/internal/db/sql"
 )
 
 var (

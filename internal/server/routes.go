@@ -3,8 +3,8 @@ package server
 import (
 	"net/http"
 
-	"github.com/RedeployAB/burnit/internal/middleware"
-	"github.com/RedeployAB/burnit/internal/ui"
+	"github.com/KarlGW/burnit/internal/middleware"
+	"github.com/KarlGW/burnit/internal/ui"
 )
 
 const (

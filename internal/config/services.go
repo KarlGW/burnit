@@ -3,14 +3,14 @@ package config
 import (
 	"fmt"
 
-	"github.com/RedeployAB/burnit/internal/db"
-	"github.com/RedeployAB/burnit/internal/db/inmem"
-	"github.com/RedeployAB/burnit/internal/db/mongo"
-	"github.com/RedeployAB/burnit/internal/db/redis"
-	"github.com/RedeployAB/burnit/internal/db/sql"
-	"github.com/RedeployAB/burnit/internal/secret"
-	"github.com/RedeployAB/burnit/internal/session"
-	"github.com/RedeployAB/burnit/internal/ui"
+	"github.com/KarlGW/burnit/internal/db"
+	"github.com/KarlGW/burnit/internal/db/inmem"
+	"github.com/KarlGW/burnit/internal/db/mongo"
+	"github.com/KarlGW/burnit/internal/db/redis"
+	"github.com/KarlGW/burnit/internal/db/sql"
+	"github.com/KarlGW/burnit/internal/secret"
+	"github.com/KarlGW/burnit/internal/session"
+	"github.com/KarlGW/burnit/internal/ui"
 
 	_ "github.com/jackc/pgx/v5/stdlib"
 	_ "github.com/microsoft/go-mssqldb"

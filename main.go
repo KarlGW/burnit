@@ -5,10 +5,10 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/RedeployAB/burnit/internal/config"
-	"github.com/RedeployAB/burnit/internal/log"
-	"github.com/RedeployAB/burnit/internal/server"
-	"github.com/RedeployAB/burnit/internal/version"
+	"github.com/KarlGW/burnit/internal/config"
+	"github.com/KarlGW/burnit/internal/log"
+	"github.com/KarlGW/burnit/internal/server"
+	"github.com/KarlGW/burnit/internal/version"
 )
 
 func main() {

@@ -10,7 +10,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/RedeployAB/burnit/internal/session"
+	"github.com/KarlGW/burnit/internal/session"
 )
 
 var (

@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/RedeployAB/burnit/internal/api"
+	"github.com/KarlGW/burnit/internal/api"
 	"golang.org/x/time/rate"
 )
 

@@ -10,7 +10,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/RedeployAB/burnit/internal/secret"
+	"github.com/KarlGW/burnit/internal/secret"
 	"github.com/google/go-cmp/cmp"
 )
 
