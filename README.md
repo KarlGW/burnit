@@ -361,7 +361,7 @@ All the available configuration that can be done with environment variables:
 
 **Server configuration**
 
-| Name | Description |
+| Name | Description |
 |------|-------------|
 | `BURNIT_LISTEN_HOST` | Host (IP) to listen on. Default: `0.0.0.0`. |
 | `BURNIT_LISTEN_PORT` | Port to listen on. Default: `3000`. |
@@ -369,26 +369,26 @@ All the available configuration that can be done with environment variables:
 | `BURNIT_TLS_KEY_FILE` | Path to TLS key file. |
 | `BURNIT_CORS_ORIGIN` | CORS origin. Only necessary if frontend is not served through the server. |
 | `BURNIT_RATE_LIMITER` | Enable rate limiter with default values. Default: `false`. |
-| `BURNIT_RATE_LIMITER_RATE` | The average number of requests per second. |
-| `BURNIT_RATE_LIMITER_BURST` | The maximum burst of requests. |
+| `BURNIT_RATE_LIMITER_RATE` | The average number of requests per second. |
+| `BURNIT_RATE_LIMITER_BURST` | The maximum burst of requests. |
 | `BURNIT_RATE_LIMITER_TTL` | The time-to-live for rate limiter entries. |
 | `BURNIT_RATE_LIMITER_CLEANUP_INTERVAL` | The interval at which to clean up stale rate limiter entires. |
 | `BURNIT_BACKEND_ONLY` | Disable UI (frontend). Default: `false`. |
 
 **Secrets configuration**
 
-| Name | Description |
+| Name | Description |
 |------|-------------|
 | `BURNIT_SECRET_SERVICE_TIMEOUT` | Timeout for the internal secret service. Default: `10s`. |
 
 **Database configuration**
 
-| Name | Description |
+| Name | Description |
 |------|-------------|
 | `BURNIT_DATABASE_DRIVER` | Database driver. This is normally evaluated by the other database configuration options but needs to be set if using a non-standard port (when using address) or sqlite without options. |
-| `BURNIT_DATABASE_URI` | URI (DSN) for the database. |
+| `BURNIT_DATABASE_URI` | URI (DSN) for the database. |
 | `BURNIT_DATABASE_ADDRESS` | Address (host and port) for the database. |
-| `BURNIT_DATABASE` | Database name. |
+| `BURNIT_DATABASE` | Database name. |
 | `BURNIT_DATABASE_USER` | Database username. |
 | `BURNIT_DATABASE_PASSWORD` | Database password. |
 | `BURNIT_DATABASE_TIMEOUT` | Timeout for database operations. Default: `10s`. |
@@ -396,54 +396,54 @@ All the available configuration that can be done with environment variables:
 
 **Database (MongoDB) configuration**
 
-| Name | Description |
+| Name | Description |
 |------|-------------|
-| `BURNIT_DATABASE_MONGO_ENABLE_TLS` | Enable TLS for MongoDB. Default: true. |
+| `BURNIT_DATABASE_MONGO_ENABLE_TLS` | Enable TLS for MongoDB. Default: true. |
 
 **Database (Postgres) configuration**
 
-| Name | Description |
+| Name | Description |
 |------|-------------|
 | `BURNIT_DATABASE_POSTGRES_SSL_MODE` | SSL mode for PostgreSQL. Default: require. |
 
 **Database (MSSQL) configuration**
 
-| Name | Description |
+| Name | Description |
 |------|-------------|
-| `BURNIT_DATABASE_MSSQL_ENCRYPT` | Encrypt for MSSQL. Default: true. |
+| `BURNIT_DATABASE_MSSQL_ENCRYPT` | Encrypt for MSSQL. Default: true. |
 
 **Database (SQLite) configuration**
 
-| Name | Description |
+| Name | Description |
 |------|-------------|
 | `BURNIT_DATABASE_SQLITE_FILE` | Path to the database file for SQLite. Default: burnit.db. |
 | `BURNIT_DATABASE_SQLITE_IN_MEMORY` | Use an in-memory database for SQLite. Default: false. |
 
 **Database (Redis) configuration**
 
-| Name | Description |
+| Name | Description |
 |------|-------------|
 | `BURNIT_DATABASE_REDIS_DIAL_TIMEOUT` | Dial timeout for the Redis client. |
 | `BURNIT_DATABASE_REDIS_MAX_RETRIES` | Maximum number of retries for the Redis client. |
 | `BURNIT_DATABASE_REDIS_MIN_RETRY_BACKOFF` |  Minimum retry backoff for the Redis client. |
-| `BURNIT_DATABASE_REDIS_MAX_RETRY_BACKOFF` | Maximum retry backoff for the Redis client. |
+| `BURNIT_DATABASE_REDIS_MAX_RETRY_BACKOFF` | Maximum retry backoff for the Redis client. |
 | `BURNIT_DATABASE_REDIS_ENABLE_TLS` | Enable TLS for the Redis client. Default: true. |
 
 **UI configuration**
 
-| Name | Description |
+| Name | Description |
 |------|-------------|
-| `BURNIT_SESSION_SERVICE_TIMEOUT` | Timeout for the internal session service. Default: `5s`. |
+| `BURNIT_SESSION_SERVICE_TIMEOUT` | Timeout for the internal session service. Default: `5s`. |
 | `BURNIT_RUNTIME_PARSE` | Enable runtime parsing of the UI templates. |
 
 **Session database configuration**
 
-| Name | Description |
+| Name | Description |
 |------|-------------|
 | `BURNIT_SESSION_DATABASE_DRIVER` | Session database driver. This is normally evaluated by the other database configuration options but needs to be set if using a non-standard port (when using address) or sqlite without options. |
-| `BURNIT_SESSION_DATABASE_URI` | URI (DSN) for the session database. |
+| `BURNIT_SESSION_DATABASE_URI` | URI (DSN) for the session database. |
 | `BURNIT_SESSION_DATABASE_ADDRESS` | Address (host and port) for the session database. |
-| `BURNIT_SESSION_DATABASE` | Session database name. |
+| `BURNIT_SESSION_DATABASE` | Session database name. |
 | `BURNIT_SESSION_DATABASE_USER` | Session Database username. |
 | `BURNIT_SESSION_DATABASE_PASSWORD` | Session database password. |
 | `BURNIT_SESSION_DATABASE_TIMEOUT` | Timeout for session database operations. Default: `5s`. |
@@ -451,37 +451,37 @@ All the available configuration that can be done with environment variables:
 
 **Session database (MongoDB) configuration**
 
-| Name | Description |
+| Name | Description |
 |------|-------------|
-| `BURNIT_SESSION_DATABASE_MONGO_ENABLE_TLS` | Enable TLS for MongoDB. Default: true. |
+| `BURNIT_SESSION_DATABASE_MONGO_ENABLE_TLS` | Enable TLS for MongoDB. Default: true. |
 
 **Session database (Postgres) configuration**
 
-| Name | Description |
+| Name | Description |
 |------|-------------|
 | `BURNIT_SESSION_DATABASE_POSTGRES_SSL_MODE` | SSL mode for PostgreSQL. Default: require. |
 
 **Session database (MSSQL) configuration**
 
-| Name | Description |
+| Name | Description |
 |------|-------------|
-| `BURNIT_SESSION_DATABASE_MSSQL_ENCRYPT` | Encrypt for MSSQL. Default: true. |
+| `BURNIT_SESSION_DATABASE_MSSQL_ENCRYPT` | Encrypt for MSSQL. Default: true. |
 
 **Session database (SQLite) configuration**
 
-| Name | Description |
+| Name | Description |
 |------|-------------|
 | `BURNIT_SESSION_DATABASE_SQLITE_FILE` | Path to the database file for SQLite. Default: burnit.db. |
 | `BURNIT_SESSION_DATABASE_SQLITE_IN_MEMORY` | Use an in-memory database for SQLite. Default: false. |
 
 **Session database (Redis) configuration**
 
-| Name | Description |
+| Name | Description |
 |------|-------------|
 | `BURNIT_SESSION_DATABASE_REDIS_DIAL_TIMEOUT` | Dial timeout for the Redis client. |
 | `BURNIT_SESSION_DATABASE_REDIS_MAX_RETRIES` | Maximum number of retries for the Redis client. |
 | `BURNIT_SESSION_DATABASE_REDIS_MIN_RETRY_BACKOFF` |  Minimum retry backoff for the Redis client. |
-| `BURNIT_SESSION_DATABASE_REDIS_MAX_RETRY_BACKOFF` | Maximum retry backoff for the Redis client. |
+| `BURNIT_SESSION_DATABASE_REDIS_MAX_RETRY_BACKOFF` | Maximum retry backoff for the Redis client. |
 | `BURNIT_SESSION_DATABASE_REDIS_ENABLE_TLS` | Enable TLS for the Redis client. Default: true. |
 
 ### Command-line flags
