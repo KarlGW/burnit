@@ -3,7 +3,7 @@ DB_PASSWORD := ""
 .PHONY: test
 test:
 	@go clean -testcache
-	@go vet ./... &&	go test ./... -race -short
+	@go vet ./... && go test ./... -race -short
 
 .PHONY: test-full
 test-full: start-database-postgres test-db stop-database-postgres
@@ -14,7 +14,7 @@ test-db:
 	@bash -c "if [ -z $$DB_PASSWORD ]; then echo 'no password set'; exit 1; fi"
 	@export DB_PASSWORD=$$DB_PASSWORD
 	@go clean -testcache
-	@go vet ./... &&	go test ./... -race
+	@go vet ./... && go test ./... -race
 
 .PHONY: lint
 lint:
