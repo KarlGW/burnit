@@ -1,4 +1,3 @@
-
 DB_PASSWORD := ""
 
 .PHONY: test
