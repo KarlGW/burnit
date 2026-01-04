@@ -8,7 +8,6 @@ test:
 .PHONY: test-full
 test-full: start-database-postgres test-db stop-database-postgres
 
-
 .PHONY: test-db
 test-db:
 	@bash -c "if [ -z $$DB_PASSWORD ]; then echo 'no password set'; exit 1; fi"
@@ -19,7 +18,6 @@ test-db:
 .PHONY: lint
 lint:
 	@golangci-lint run ./...
-
 
 .PHONY: start-database-postgres
 start-database-postgres:
