@@ -55,9 +55,7 @@ func Compress(options ...CompressOption) func(next http.Handler) http.Handler {
 			defer pool.Put(gz)
 
 			gz.Reset(w)
-			defer func() {
-				_ = gz.Close()
-			}()
+			defer gz.Close()
 
 			w.Header().Set("Content-Encoding", "gzip")
 			cw := compressResponseWriter{ResponseWriter: w, writer: gz}
