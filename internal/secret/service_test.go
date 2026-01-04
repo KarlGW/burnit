@@ -19,7 +19,7 @@ import (
 )
 
 func TestNewService(t *testing.T) {
-	var tests = []struct {
+	tests := []struct {
 		name  string
 		input struct {
 			secrets db.SecretStore
@@ -99,7 +99,7 @@ func TestNewService(t *testing.T) {
 }
 
 func TestService_Get(t *testing.T) {
-	var tests = []struct {
+	tests := []struct {
 		name  string
 		input struct {
 			secrets db.SecretStore
@@ -215,7 +215,7 @@ func TestService_Create(t *testing.T) {
 
 	n := now()
 
-	var tests = []struct {
+	tests := []struct {
 		name  string
 		input struct {
 			secrets db.SecretStore
@@ -279,7 +279,7 @@ func TestService_Create(t *testing.T) {
 				secrets: &stubSecretStore{},
 				secret: Secret{
 					Value: func() string {
-						f, err := os.OpenFile("../../assets/burnit.png", os.O_RDONLY, 0644)
+						f, err := os.OpenFile("../../assets/burnit.png", os.O_RDONLY, 0o644)
 						if err != nil {
 							panic(err)
 						}
@@ -339,7 +339,7 @@ func TestService_Create(t *testing.T) {
 }
 
 func TestService_Delete(t *testing.T) {
-	var tests = []struct {
+	tests := []struct {
 		name  string
 		input struct {
 			secrets db.SecretStore
@@ -414,7 +414,7 @@ func TestService_Delete(t *testing.T) {
 }
 
 func TestValidValue(t *testing.T) {
-	var tests = []struct {
+	tests := []struct {
 		name    string
 		input   string
 		wantErr error
@@ -444,7 +444,7 @@ func TestValidValue(t *testing.T) {
 		{
 			name: "invalid value - base64 encoded",
 			input: func() string {
-				f, err := os.OpenFile("../../assets/burnit.png", os.O_RDONLY, 0644)
+				f, err := os.OpenFile("../../assets/burnit.png", os.O_RDONLY, 0o644)
 				if err != nil {
 					panic(err)
 				}
@@ -463,7 +463,7 @@ func TestValidValue(t *testing.T) {
 		{
 			name: "invalid value - base32 encoded",
 			input: func() string {
-				f, err := os.OpenFile("../../assets/burnit.png", os.O_RDONLY, 0644)
+				f, err := os.OpenFile("../../assets/burnit.png", os.O_RDONLY, 0o644)
 				if err != nil {
 					panic(err)
 				}
@@ -482,7 +482,7 @@ func TestValidValue(t *testing.T) {
 		{
 			name: "invalid value - base32 encoded (hex)",
 			input: func() string {
-				f, err := os.OpenFile("../../assets/burnit.png", os.O_RDONLY, 0644)
+				f, err := os.OpenFile("../../assets/burnit.png", os.O_RDONLY, 0o644)
 				if err != nil {
 					panic(err)
 				}
@@ -501,7 +501,7 @@ func TestValidValue(t *testing.T) {
 		{
 			name: "invalid value - hex encoded",
 			input: func() string {
-				f, err := os.OpenFile("../../assets/burnit.png", os.O_RDONLY, 0644)
+				f, err := os.OpenFile("../../assets/burnit.png", os.O_RDONLY, 0o644)
 				if err != nil {
 					panic(err)
 				}
@@ -531,7 +531,7 @@ func TestValidValue(t *testing.T) {
 }
 
 func TestValidPassphrase(t *testing.T) {
-	var tests = []struct {
+	tests := []struct {
 		name    string
 		input   string
 		wantErr error
@@ -631,8 +631,4 @@ var (
 	errCreateSecret      = errors.New("create secret error")
 	errDeleteSecret      = errors.New("delete secret error")
 	errDeleteManySecrets = errors.New("delete many secrets error")
-)
-
-var (
-	pastHour = time.Now().UTC().Add(-1 * time.Hour)
 )

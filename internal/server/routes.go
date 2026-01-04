@@ -49,7 +49,7 @@ func (s *server) routes() {
 	uiMiddlewares := setupUIMiddlewares(s.ui.RuntimeParse())
 
 	fer := http.NewServeMux()
-	fer.Handle("/ui/secrets", ui.CreateSecret(s.ui, s.secrets))
+	fer.Handle("/ui/secrets", ui.CreateSecret(s.ui, s.secrets, s.log))
 	fer.Handle("/ui/secrets/", ui.GetSecret(s.ui, s.secrets, s.log))
 	fer.Handle("/ui/about", ui.About(s.ui))
 	fer.Handle("/ui/privacy", ui.Privacy(s.ui))

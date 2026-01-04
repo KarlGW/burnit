@@ -16,7 +16,7 @@ type gzipFile struct {
 // FileServer creates a file server handler.
 func FileServer(fsys fs.FS) http.Handler {
 	gzipped := map[string]gzipFile{}
-	fs.WalkDir(fsys, ".", func(path string, d fs.DirEntry, err error) error {
+	err := fs.WalkDir(fsys, ".", func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
 			return err
 		}
@@ -35,6 +35,10 @@ func FileServer(fsys fs.FS) http.Handler {
 	})
 
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if err != nil {
+			w.WriteHeader(http.StatusInternalServerError)
+			return
+		}
 		if strings.Contains(r.Header.Get("Accept-Encoding"), "gzip") {
 			if file, ok := gzipped[r.URL.Path]; ok {
 				w.Header().Set("Content-Type", file.contentType)

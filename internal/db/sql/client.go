@@ -209,12 +209,12 @@ type tx struct {
 
 // QueryRow executes a query that is expected to return at most one row.
 func (t tx) QueryRow(ctx context.Context, query string, args ...any) Row {
-	return t.Tx.QueryRowContext(ctx, query, args...)
+	return t.QueryRowContext(ctx, query, args...)
 }
 
 // Exec executes a query without returning any rows.
 func (t tx) Exec(ctx context.Context, query string, args ...any) (Result, error) {
-	return t.Tx.ExecContext(ctx, query, args...)
+	return t.ExecContext(ctx, query, args...)
 }
 
 // Commit commits the transaction.
