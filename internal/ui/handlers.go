@@ -149,7 +149,6 @@ func CreateSecretHandler(ui UI, secrets secret.Service, log log.Logger) http.Han
 
 		ok, statusCode, errResp, err := validateCSRFTToken(r.Context(), ui.Sessions(), r.FormValue("csrf-token"))
 		if err != nil {
-
 			log.Error("Failed to validate CSRF token.", uiLog(err, "HandlerCreateSecret", requestID)...)
 			ui.Render(w, statusCode, "error", errResp, WithPartial())
 			return
