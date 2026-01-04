@@ -153,7 +153,7 @@ func setupSecretStore(driver Driver, password string) (db.SecretStore, error) {
 	case DriverPostgres:
 		dsn = fmt.Sprintf("postgres://postgres:%s@localhost:5432/burnit", password)
 	default:
-		return nil, errors.New("could determine driver")
+		return nil, errors.New("could not determine driver")
 	}
 
 	client, err := NewClient(func(o *ClientOptions) {
