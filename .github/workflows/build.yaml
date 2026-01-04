@@ -43,7 +43,7 @@ jobs:
           ESBUILD_SHA256: ${{ vars.ESBUILD_SHA256 }}
 
       - name: Run tests
-        run: go vet ./... && go test -v ./...
+        run: go vet ./... && go test -v ./... -race -short
 
       - name: Test for vulnerabilities
         run: govulncheck ./...
