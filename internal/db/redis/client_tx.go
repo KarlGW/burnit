@@ -62,26 +62,26 @@ func (t *tx) HSet(ctx context.Context, key string, value map[string]any) {
 }
 
 // Delete the key.
-func (t tx) Delete(ctx context.Context, key string) {
+func (t *tx) Delete(ctx context.Context, key string) {
 	cmd := t.pipe.Del(ctx, key)
 	t.cmds = append(t.cmds, command{key: key, cmd: cmd})
 }
 
 // Expire sets expire time for the key.
-func (t tx) Expire(ctx context.Context, key string, exp time.Duration) {
+func (t *tx) Expire(ctx context.Context, key string, exp time.Duration) {
 	cmd := t.pipe.Expire(ctx, key, exp)
 	t.cmds = append(t.cmds, command{key: key, cmd: cmd})
 }
 
 // LastCommand returns the last command in the transaction pipe.
-func (t tx) LastCommand() command {
+func (t *tx) LastCommand() command {
 	if len(t.cmds) == 0 {
 		return command{}
 	}
 	return t.cmds[len(t.cmds)-1]
 }
 
-// TxResults contains the results from a transaction.
+// TxResult contains the results from a transaction.
 type TxResult struct {
 	b [][]byte
 	m []map[string]string

@@ -23,12 +23,12 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup Go
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v6
         with:
-          go-version: "1.25.4"
+          go-version-file: "go.mod"
 
       - name: Download dependecies
         run: |
@@ -43,7 +43,7 @@ jobs:
           ESBUILD_SHA256: ${{ vars.ESBUILD_SHA256 }}
 
       - name: Run tests
-        run: go vet ./... && go test -v ./...
+        run: go vet ./... && go test -v ./... -race -short
 
       - name: Test for vulnerabilities
         run: govulncheck ./...

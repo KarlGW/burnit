@@ -1,14 +1,23 @@
 package sql
 
 import (
+	"context"
+	"errors"
+	"fmt"
+	"os"
 	"testing"
+	"time"
 
+	"github.com/KarlGW/burnit/internal/db"
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
+	"github.com/google/uuid"
+
+	_ "github.com/jackc/pgx/v5/stdlib"
 )
 
 func TestCreateSecretQueries(t *testing.T) {
-	var tests = []struct {
+	tests := []struct {
 		name  string
 		input struct {
 			driver Driver
@@ -80,4 +89,85 @@ func TestCreateSecretQueries(t *testing.T) {
 			}
 		})
 	}
+}
+
+func TestSecretStore_CreateAndGet(t *testing.T) {
+	if testing.Short() {
+		t.Skip()
+	}
+
+	tests := []struct {
+		name string
+	}{
+		{
+			name: "create secret and retrieve secret",
+		},
+	}
+
+	password := os.Getenv("DB_PASSWORD")
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			t.Run("postgres", func(t *testing.T) {
+				store, err := setupSecretStore(DriverPostgres, password)
+				if err != nil {
+					t.Fatalf("could not setup secret store: %v", err)
+				}
+
+				ctx, cancel := context.WithTimeout(t.Context(), 3*time.Second)
+				defer cancel()
+
+				id := uuid.New().String()
+				val := uuid.New().String()
+				expiresAt := time.Now().Add(5 * time.Second)
+
+				gotSecret, createErr := store.Create(ctx, db.Secret{
+					ID:        id,
+					Value:     val,
+					ExpiresAt: expiresAt,
+				})
+				if createErr != nil {
+					t.Errorf("Create() = unexpected error: %v", createErr)
+				}
+
+				if gotSecret.ID != id {
+					t.Errorf("Create() = unexpected ID, want: %s, got: %s\n", id, gotSecret.ID)
+				}
+
+				gotSecret, getErr := store.Get(ctx, gotSecret.ID)
+				if getErr != nil {
+					t.Errorf("Get() = unexpected error: %v", getErr)
+				}
+
+				if gotSecret.ID != id {
+					t.Errorf("Create() = unexpected ID, want: %s, got: %s\n", id, gotSecret.ID)
+				}
+			})
+		})
+	}
+}
+
+func setupSecretStore(driver Driver, password string) (db.SecretStore, error) {
+	var dsn string
+	switch driver {
+	case DriverPostgres:
+		dsn = fmt.Sprintf("postgres://postgres:%s@localhost:5432/burnit", password)
+	default:
+		return nil, errors.New("could not determine driver")
+	}
+
+	client, err := NewClient(func(o *ClientOptions) {
+		o.Driver = driver
+		o.DSN = dsn
+	})
+	if err != nil {
+		return nil, fmt.Errorf("database client: %w", err)
+	}
+
+	store, err := NewSecretStore(client)
+	if err != nil {
+		return nil, fmt.Errorf("secret store: %w", err)
+	}
+
+	return store, nil
 }
