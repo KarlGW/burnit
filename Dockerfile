@@ -1,5 +1,5 @@
 # golang:1.25.5-alpine3.23 SHA1 digest.
-FROM golang@sha256:ac09a5f469f307e5da71e766b0bd59c9c49ea460a528cc3e6686513d64a6f1fb as builder
+FROM --platform=$BUILDPLATFORM golang@sha256:ac09a5f469f307e5da71e766b0bd59c9c49ea460a528cc3e6686513d64a6f1fb as builder
 
 ARG TARGETOS
 ARG TARGETARCH
