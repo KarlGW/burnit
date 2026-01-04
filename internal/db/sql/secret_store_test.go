@@ -91,7 +91,7 @@ func TestCreateSecretQueries(t *testing.T) {
 	}
 }
 
-func TestSecretStore_Get(t *testing.T) {
+func TestSecretStore_CreateAndGet(t *testing.T) {
 	if testing.Short() {
 		t.Skip()
 	}
